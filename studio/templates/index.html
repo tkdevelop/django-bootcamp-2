@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <meta name="robots" content="noindex, nofollow">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>coma4 - Studio</title>
+        <link rel="stylesheet" href="{% static 'style.css' %}">
+    </head>
+    <body>
+        {% include "navbar.html" %}
+        ホームページ
+        <img src="{% static 'animals.jpg' %}" width=300 />
+        {% for post in posts %}
+            <div>
+                {% if "男" in post.title %}
+                    <h1 style="color: red;">{{ post.title }}</h1>
+                {% else %}
+                    <h1>{{ post.title }}</h1>
+                {% endif %}
+                
+                <p>{{ post.body }}</p>
+                <h4>{{ post.category }}</h4>
+                <ul>
+                    {% for tag in post.tags.all %}
+                    <li>
+                        {{ tag }}
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <p>----------------------------------------------</p>
+        {% endfor %}
+    </body>
+</html>

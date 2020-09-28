@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <meta name="robots" content="noindex, nofollow">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>coma4 - Studio</title>
+        <link rel="stylesheet" href="{% static 'style.css' %}">
+    </head>
+    <body>
+        {% include "navbar.html" %}
+        <div>
+            {% block main %}
+            {% endblock %}
+        </div>
+        <footer><p>盛岡情報ビジネス＆デザイン専門学校</p></footer>
+    </body>
+</html>
